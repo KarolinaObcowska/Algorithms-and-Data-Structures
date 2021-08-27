@@ -13,7 +13,7 @@ class Stack {
 
     getItemTop() {
         return this.stack.pop();
-    };
+    }; 
 
     getItemBottom() {
         return this.stack[this.length - 1];
