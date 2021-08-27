@@ -1,25 +1,30 @@
 class Queue {
     constructor() {
-        this.queue = [];
-    };
+        this._storage = {};
+        this._length = 0;
+        this._headIndex = 0;
+    }
 
-    getLength() {
-        return this.queue.length;
-    };
+    enqueue(value) {
+        const lastIndex = this._length + this._headIndex;
+        this._storage[lastIndex] = value;
+        this._length++;
+    }
 
-    addItem(item) {
-        return this.queue.push(item);
-    };
+    dequeue() {
+        if (this._length) {
+            const firstValue = this._storage[this._headIndex];
+            delete this._storage[this._headIndex];
+            this._length--;
+            this._headIndex++;
+            return firstValue;
+        }
+    }
 
-    removeItem() {
-        return this.queue.shift();
-    };
-
-    takeItem() {
-        return this.queue[0];
-    };
-
-    isEmpty() {
-        return this.length === 0;
-    };
+    peek() {
+        if (this._length) {
+            const firstValue = this._storage[this._headIndex];
+            return firstValue;
+        }
+    }
 }
