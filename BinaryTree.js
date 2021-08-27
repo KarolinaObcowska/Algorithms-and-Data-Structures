@@ -26,3 +26,41 @@ class BinaryTree {
             || (this.no && this.no.contains(question) ? ture: false)
     }
 }
+
+/* Tree traversal order
+
+--- left, root, right ---
+function inOrder(node, func) {
+    if (node.left) {
+        node.left.inOrder(func)
+    }
+    func(node)
+
+    if (node.right) {
+        node.right.inOrder(func)
+    }
+}
+
+--- left, right, root ---
+function postOrder(node, func) {
+    if(node.left) {
+        node.left.postOrder(func)
+    }
+    if (node.right) {
+        node.right.postOrder(func)
+    }
+    func(node)
+}
+
+--- root, left, right --- 
+function preOrder(node, func) {
+    func(node);
+
+    if (node.left) {
+        node.left.preOrder(func)
+    }
+    if (node.right) {
+        node.right.preOrder(func)
+    }
+}
+*/
